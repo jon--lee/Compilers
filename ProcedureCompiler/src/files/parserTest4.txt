@@ -1,0 +1,8 @@
+BEGIN
+    x := 2;
+    IF x = 3 THEN x := 10;
+    y := x + 1;
+    x := x + y;
+    WRITELN(x * y);
+END;
+.

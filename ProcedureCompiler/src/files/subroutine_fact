@@ -1,0 +1,36 @@
+	.text
+	.globl main
+	main: #QTSPIM will automatically look for main
+	
+	subu $sp $sp 4
+	sw $ra ($sp)		#save the ra
+	
+	li $v0 5			#should return 120 given 5
+	subu $sp $sp 4
+	sw $v0 ($sp)		#load first argument to stack
+	
+	
+	move $a0 $v0
+	li $v0 1
+	syscall				#print out the return value
+
+	li $v0 10
+	syscall # halt
+procfact:
+	
+	#allocate space for return value
+	
+	#load lone argument to t1
+	
+	#if t1 is equal to or less than 1
+	
+dorecur:
+endrecur:
+	#set return value (which is $sp) to 1
+	li $a0 1
+	sw $a0 ($sp)
+	#go to ra
+	jr $ra
+.data
+newline:
+	.asciiz "\n"
